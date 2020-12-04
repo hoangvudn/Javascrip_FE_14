@@ -1,0 +1,34 @@
+body {
+    width: 100%;
+    background: lightslategray;
+}
+.main {
+    width: 40%;
+    margin: 0 auto;
+}
+#value_a {
+    width: 146px !important;
+    height: 15px !important;   
+    margin-bottom: 10px;
+}
+
+input {
+    width: 120px;
+    height: 35px;   
+}
+.effectDom1 {
+    color: red;
+    font-size: larger;
+    font-weight: 500;
+}
+.effectDom2 {
+    color: blue;
+    font-size: larger;
+    font-weight: 300;
+}
+.effectDom3 {
+    color: goldenrod;
+    font-size: xx-large;
+    font-weight: 650;
+    margin-left: 1px;
+}

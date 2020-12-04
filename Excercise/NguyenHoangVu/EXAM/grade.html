@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculater percentage</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+       
+    </head>
+    <body>
+        <div class="sizeInput">
+            <h2>This is a program calculate percentage</h2>
+            <form action="" onsubmit="return percentageFunction()" style="display: flex; flex-direction: column;">
+                Physics <input type="text" id="phy" > 
+                Mathematics <input type="text" id="math">  
+                Chemistry <input type="text" id="che" > 
+                <div>
+                    <input type="button" id="submit" value="SUBMIT" style="width: 125px; height: 60px;" >
+                    <input type="button" id="clear" value="CLEAR" style="width: 125px; height: 60px;" >
+                </div>
+            </form>
+        </div>
+        <div>
+            <a href="/index.html"><p>HOME PAGE</p></a>  
+         </div>
+    </body>
+    <script>
+        /*var physics = prompt("Please input physics: ");
+            physics = parseFloat(physics);
+        var mathematics = prompt("Please input mathematics: ");
+            mathematics = parseFloat(mathematics);
+        var chemistry = prompt("Please input chemistry: ");
+            chemistry = parseFloat(chemistry);
+        var biology = prompt("Please input biology: ");
+            biology = parseFloat(biology);
+        var computer = prompt("Please input computer: ");
+            computer = parseFloat(computer);
+        var percentage = ((physics + mathematics + chemistry + biology + computer)/50) * 100;*/
+        var $ = function(id) {return document.getElementById(id); };
+     function percentageFunction() {
+        var physics = document.getElementById("phy").value;
+            physics = parseFloat(physics);
+        var mathematics = document.getElementById("math").value;
+            mathematics = parseFloat(mathematics);
+        var chemistry = document.getElementById("che").value;
+            chemistry = parseFloat(chemistry);
+        var percentage = parseFloat((physics + mathematics + chemistry)/3);
+            percentage = percentage.toFixed(1);
+            // Need use Do...While to user input number
+            if (isNaN(physics) || isNaN(mathematics) || isNaN(chemistry)){
+                alert("You input not is number");
+                clearValue();
+            }else if ((physics < 0 || mathematics < 0 || chemistry < 0)) { 
+                alert(" Grade must > 0 ");
+                clearValue();
+            }else if (physics > 10 || mathematics > 10 || chemistry > 10) {
+               alert("Grade must < 10");
+               clearValue();
+            } else {
+                if (percentage >= 8.0){
+                   alert("Grade A");
+                }else if (percentage >= 6.5){
+                   alert("Grade B");
+                }else if (percentage >=5.0){
+                   alert("Grade C");
+                }else {
+                   alert("Grade D");
+                }
+            }     
+     }
+    function clearValue() {
+         $("phy").value = "";
+         $("math").value = "";
+         $("che").value = "";
+     }
+     window.onload = function(){
+       $("submit").onclick = percentageFunction; 
+       $("clear").onclick = clearValue;   
+     }
+    </script>
+</html>

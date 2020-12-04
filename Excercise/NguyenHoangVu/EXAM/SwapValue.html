@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Swap Application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styleIndex.css">
+    </head>
+    <body>
+         <form action="">
+             <div>
+                 <label for="a"> Value A: </label>
+                 <input type="text" id="value_a">
+             </div>
+             <div>
+                <label for="B"> Value B: </label>
+                <input type="text" id="value_b">
+            </div>
+            <input type="button" id="swap" value="SWAP">
+            <label for="text" id="text_dom" class="text_dom">&nbsp;</label>
+          
+         </form>
+         <div class="div_swap"> 
+            <a href="/index.html"><p class="oi"> HOME PAGE</p></a>  
+         </div>
+         <p id="message">&nbsp;</p>
+    </body>
+    <script>
+        var $ = function(id) { return document.getElementById(id); };
+        var swap = function(){
+            var a = $("value_a").value;
+            var b = $("value_b").value;
+            var c;
+            var message = $("message").firstChild;
+            if (isNaN(a) || isNaN(b)) {
+               message.nodeValue = "Please input number!";
+               $("text_dom").firstChild.nodeValue = "";
+            } else {
+                c = a;
+                a = b;
+                b = c;
+                $("value_a").value = a;
+                $("value_b").value = b;
+                document.getElementsByTagName("label")[0].removeAttribute("class");
+                $("text_dom").firstChild.nodeValue = "Congratulation";
+                $("text_dom").removeAttribute("class");
+                $("text_dom").setAttribute("class","text_dom1");
+                message.nodeValue = " Result after swap value A and value B ";
+            }
+        };
+        window.onload = function() {
+            $("swap").onclick = swap;
+            $("value_a").focus();
+        }
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Closure</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+     <script>
+         //Example cloesure
+          var cal = function(x,y,z) {
+              var sum = function(a,b) {
+                  var littleSum = function() {
+                      return  
+                  }.bind.(this)
+                  return ( a + b ) + (x + y - z );
+              };
+               return sum;
+
+          }     
+          var subTotal = cal(3,4,5);
+          var mainTotal = subTotal(2,8);
+          alert(mainTotal);
+
+          this.x = 9;    // 'this' refers to global 'window' object here in a browser
+       const module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX();
+//  returns 81
+
+const retrieveX = module.getX;
+retrieveX()
+          </script>
+    </body>
+</html>

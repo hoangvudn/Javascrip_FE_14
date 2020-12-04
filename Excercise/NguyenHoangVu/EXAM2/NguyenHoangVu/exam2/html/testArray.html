@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <input type="button" id="">
+    </head>
+    <body style="background: black;">
+        <h2>String Array User Name</h2>
+        <p id="list"></p>
+        
+        <script>
+            var $ = function(id) {return document.getElementById(id);};
+            var listUser = [];
+            var list1 =[];
+            var amountUser = prompt("Please input AMOUNT User Name: ");
+                amountUser = parseInt(amountUser);
+            if (isNaN(amountUser)) {
+                alert("Amount User must NUMBER not String:") ;
+            } else {
+                for( i = 0; i < amountUser; i++) {
+                var studentName = prompt("Please input User Name:");
+                var student = {
+			                    "name": studentName,
+		                      }
+		            listUser.push(student)
+	            }
+            }
+
+           for( i = 0; i < listUser.length; i++) {
+                list1.push(listUser[i].name);
+            }
+        
+            $("list").innerHTML = (list1.sort());
+            $("list").style.color = "red";
+          
+	                /*var arrayA = ["Circle","Orange"];
+                var list = [];
+                for ( var i = 0; i < arrayA.length; i++) {
+                     var x = prompt("Uer Name:");
+                     arrayA[i] = x;
+                     list += arrayA[i];
+                };
+                alert("OK");
+                //list = arrayA.sort();
+                document.writeln(list);
+                /*for ( var i = 0; i < arrayA.length; i++) {
+                    document.writeln(arrayA[i]);
+                }*/
+                //document.writeln(array);
+                //document.writeln(array.length);*/
+        </script>
+        
+    </body>
+</html>
+   

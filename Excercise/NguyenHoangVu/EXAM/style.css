@@ -1,0 +1,18 @@
+body {
+    width: 100%;
+    background: lightslategray;
+}
+.sizeInput {
+    width: 30%;
+    margin: 0 auto;
+}
+input {
+    width: 120px;
+    height: 15px;   
+}
+input:last-child {
+    margin-top: 15px;
+}
+form {
+    border: 1px da;
+}

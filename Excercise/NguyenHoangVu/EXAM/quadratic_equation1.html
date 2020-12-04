@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Quadratic Equation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <main>
+            <form action="">
+                <h1>Caculate: ax + b = 0</h1>
+                <div>
+                    <div>
+                        <label for="text">Value A:</label>
+                        <input type="text" id="value_a" class="value_a">
+                    </div>
+                    <div>
+                        <label for="text">Value B:</label>
+                        <input type="text" id="value_b" class="value_b">
+                    </div>
+                    <div>
+                        <label for="text">Result X: </label>
+                        <input type="text" id="value_x" class="value_x" disabled>
+                    </div>
+                </div>
+                <input type="button" id="result" value="Calculate">
+            </form>
+            <div>
+                <a href="/index.html"><p>HOME PAGE</p></a>  
+             </div>
+        </main>
+    </body>
+    <script>
+        var $ = function(id) {return document.getElementById(id); };
+        var cal =  function(){
+            var a = $("value_a").value;
+                a = parseInt(a);
+            var b = $("value_b").value;
+                b = parseInt(b);
+            var x;
+            if (isNaN(a) || isNaN(b)){
+                $("value_x").value = "You must input a number!";
+                $("value_a").value = "";
+                $("value_b").value = "";
+                $("value_a").focus();
+            }else if (a !== 0 ) {
+                x = -b/a;
+                $("value_x").value = "Have 1 solution X = "+ x;
+            }else {
+                alert("Equation no solution ");
+            }
+        } 
+        window.onload = function(){
+            $("result").onclick = cal;
+        }
+    </script>
+</html>

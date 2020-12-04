@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Multidimensional Array</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/stylearr.css">
+        
+    </head>
+    <body>
+        <div class="container">
+            <a class="menu-btn" href="#">Menu</a>
+            <div id="menu" class="menu">
+                 <ul>
+                     <li id="input_arr" ><a href="#">PLEASE INPUT ELEMENT TO ARRAY</a></li>
+                     <ul id="sub-menu" class="sub-menu">
+                        <li id="show_arr"><a href="#">Print all element of array</a></li>
+                        <li id="sum_arr"><a href="#">Calculate summ of array</a></li>
+                        <li id="min_arr"><a href="#">Show min element of array</a></li>
+                        <li id="max_arr"><a href="#">Show max element of array</a></li>
+                        <li id="find_arr"><a href="#">Find element in array</a></li>
+                     </ul>  
+                 </ul>
+                 <p id="element">&nbsp;</p>
+                 <textarea name="" id="list-Array" cols="35" rows="15"></textarea>
+            </div>
+        </div>
+        <script>
+            /*var multidimensionalArray = [["a","b","c","d","e","f","g","h","i","j"],["A","B","C","D","E","F","G","H","I","J"],["!","@","#","$","%","^","&","*","(",")"]];
+            document.writeln(multidimensionalArray + "<br>") + "\n";
+            document.writeln(multidimensionalArray[2][9] + "<br>");
+            document.writeln(multidimensionalArray[0][0] + "<br>");
+            document.writeln(multidimensionalArray[2][2] + "<br>");*/
+            /*var r = prompt("Please input row of array:");
+                r = parseInt(r);
+            var c = prompt("Please inputcolumn of array:");
+                r = parseInt(c);*/
+            var rows = 3;
+            var cols = 3;
+            var array = [];
+            var listUser = new Array(10);
+            var array1 = [[5,254,788],[321,546,778],[571,5,5]];
+            var $ = function(id) {return document.getElementById(id); };
+            //-----------------------INPUT ARRAY--------------------------------
+            function inputArray(){
+                for ( var i = 0; i < rows; i++) {
+                     array[i] = [];
+                     for ( var j = 0; j < cols; j++) {
+                         var x = prompt("Please input element: " + i);
+                         if (isNaN(x)){
+                             alert("Please input NUMBER:");
+                         }else {  array[i][j] = x; }
+                         //array[i][.push(x)];   
+                     }
+                }
+            }
+           
+            //------------------------SHOW ARRAY------------------------------
+            function showArray(){
+                var x = [];
+                var showX= "";
+                 for ( var i = 0; i < rows; i++) {
+                    for ( var j = 0; j < cols; j++) {
+                          x.push( "a["+i+"]"+"["+j+"]:" + array[i][j] + "\n");
+                    }
+                  }
+                  showX += x.join("");
+                  $("list-Array").value = showX; 
+            }
+          
+            //------------------------CALCULATE SUM ELEMENT IN ARRAY-----------------------------
+            function sumElementArray(){
+                var sum = 0;
+                for ( var i = 0; i < array.length; i++) {
+                    for ( var j=0; j< array[i].length; j++) {
+                       // console.log(array[j][i]);
+                        sum += parseInt(array[j][i]);
+                    }
+                }
+                $("element").innerHTML = "Sum of all element in Array: " + sum;
+                $("element").style.color = "red";
+            }
+           
+            //----------------------FIND MIN ELEMENT IN ARRAY----------------
+            function minElementArray(){
+                var min = parseInt(array[0][0]) ;
+                for ( var i = 0; i < parseInt(array.length); i++) {
+                    for ( var j = 0; j < parseInt(array[i].length); j++) {
+                        if ((parseInt(array[i][j]) < min)) {
+                            min = parseInt(array[i][j]);
+                        }
+                    }   
+                }
+                $("element").innerHTML = "Min element in Array: " + min;
+                $("element").style.color = "orange";
+            }
+
+            //-----------------------FIND MAX ELEMENT IN ARRAY--------------------
+            function maxElementArray(){
+                var max = parseInt(array[0][0]) ;
+                for ( var i = 0; i < parseInt(array.length); i++) {
+                    for ( var j = 0; j < parseInt(array[i].length); j++) {
+                        if ((parseInt(array[i][j]) > max)) {
+                            max = parseInt(array[i][j]);
+                        }
+                    }   
+                }
+                //v = max.toString();
+                $("element").innerHTML = "Max element in Array: " + max;
+                $("element").style.color = "blue";
+            };
+            //----------------------FIND ELEMENT IN ARRAY-------------------------
+            function findElementArray(){
+                var x = prompt("Input value need find: ");
+                    x = parseInt(x);
+                    var count = 0;
+                    var position = "";
+                    for ( var i = 0; i < parseInt(array.length); i++) {
+                      for ( var j = 0; j <  parseInt(array[i].length); j++) {
+                          //while (count == 0){
+                             if ( x === (parseInt(array[i][j]))){
+                                 count++;
+                                 //position += array.indexOf(array[i][j]);
+                             }
+                      } 
+                    }
+                    //---------------RETURN RESULT-----------------------
+                    if (count !== 0) {
+                         $("element").innerHTML = "This element EXITS in Array: ";
+                         $("element").style.color = "pink";
+                         $("element").style.fontSize = "50px";  
+                    } else {
+                         $("element").innerHTML = "Element NOT EXITS in Array: " ; 
+                         $("element").style.color = "red";  
+                    }
+            }
+            //---------------------SORT DESCENDING ARRAY------------------------------
+            function sortDescending() {
+                    array.sort(function(a, b){return b-a});
+                    document.writeln(array);
+            }
+            //---------------------LIST NAME USER------------------------------------------
+           
+         
+
+            function listName(){
+                var c = prompt("Please input user name: ");
+                for ( i = 0; i < listUser.length; i++) {
+                    listUser[i] += c;
+                    $("element").innerHTML = "User: " +  listUser[i];
+                }
+            }
+           
+            function showListUser(){
+                var x = [];
+               for ( i = 0; i < listUser.length; i++)
+               {
+                  //$("element").innerHTML = "User: " + listUser[i];  
+                  //document.writeln(listUser[i]);
+                  x += listUser[i];
+                  $("element").innerHTML = "User: " + x; 
+               }
+               
+            
+                
+            }
+            //------------------------------------------------------------------------
+            //----------------------CREATE FUNCTION MENU--------------------------
+            function Menu1(){
+                var menuBtn = document.querySelector(".menu-btn");
+                var menu = document.querySelector(".menu");
+                var subMenu = document.querySelector(".sub-menu");
+                var menuStatus = false;
+                var subMenuStatus = false;
+                //menu.style.marginLeft = "-300px";
+                menuBtn.style.marginLeft = "500px";
+                menu.style.display = "none";
+                
+                //-----------------------------------
+                 function menuToggle(){
+                   if (menuStatus == false) {
+                       menu.style.marginLeft = "500px";
+                       menu.style.display = "block";
+                       menuStatus = true;
+                   } else if (menuStatus == true) {
+                     //menu.style.marginLeft = "-300px";
+                      menu.style.display = "none";
+                      menuStatus = false;
+                   }
+                 };
+                 menuBtn.onclick = menuToggle;
+                //------------------------------------
+                /*subMenu.style.display = "none";
+                 function subMenuToggle(){
+                   if (subMenuStatus == false) {
+                       //menu.style.marginLeft = "500px";
+                       subMenu.style.display = "block";
+                       menuStatus = true;
+                   } else if (menuStatus == true) {
+                     //menu.style.marginLeft = "-300px";
+                      subMenu.style.display = "none";
+                      subMenuStatus = false;
+                   }
+                 };
+                 subMenu.onclick = subMenuToggle;*/
+            }
+
+            //--------------------------------------------------------
+        
+
+            window.onload = Menu1();
+            window.onload = function() {
+                $("input_arr").onclick = inputArray;
+                $("show_arr").onclick = showArray;
+                $("sum_arr").onclick = sumElementArray;
+                $("min_arr").onclick = minElementArray;
+                $("max_arr").onclick = maxElementArray;
+                $("find_arr").onclick = findElementArray;
+                $("sort_arr").onclick = sortDescending;
+                $("list_user").onclick = listName;
+                $("show_user").onclick = showListUser;
+            }
+            //--------------------EVEN NUMBER----------------------
+           /* for ( var i = 0; i < array.length; i++) {
+                for ( var j = 0; j < array[i].length; j++) {
+                    var even;
+                    var even1="";
+                    if (array[i][j] % 2 === 0) {
+                        even = array[i][j];
+                        even1 += even;
+                    }  
+                }    
+                document.writeln("Even Number: " + even1);
+            }*/
+            //-----------------------------------------------------
+      
+           //---------------------------------------------
+           // document.writeln(array + "<br>");
+           // document.writeln(array[0][1] + "<br>");
+            //document.writeln(array[0][0] + "<br>");
+          /*  var arr = [[1, 112.0],[2,5.12],[3,113.1],[4,33.6],[5,85.9],[6,219.9]];
+var values = Array.concat.apply([],arr);
+var max = Math.max(...values);
+var min = Math.min(...values);
+console.log(arr);
+console.log(min);//1
+console.log(max);//219.9
+console.log(values);//[ 1, 112, 2, 5.12, 3, 113.1, 4, 33.6, 5, 85.9, 6, 219.9 ]*/
+        </script>
+    </body>
+</html>

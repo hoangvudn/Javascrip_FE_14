@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Student's Information</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+      <div>
+         <a href="/index.html"><p>HOME PAGE</p></a>  
+      </div>
+<script>
+	     
+   document.addEventListener('keydown', function(event){
+	    if(event.key === "Escape"){
+            alert("You pressed ESC");
+		    event.preventDefault;
+            event.stopPropagation;
+            window.escape;
+            return false;
+        } else {
+            var studentList = []
+            var amountStudents = prompt("Please input amount Students: ");
+	        for( i = 0; i < amountStudents; i++) {
+            var studentCode = prompt("Please input Student Code:");
+            var studentName = prompt("Please input Student Name:");
+            var studentAge = prompt("Please input Student Age:");
+            var studentSex = prompt("Please input Student Sex:");
+		    var student = {
+			    "code": studentCode,
+			    "name": studentName,
+			    "age": studentAge,
+			    "sex": studentSex,
+		    }
+		         studentList.push(student)
+	        }
+            //View Student Information
+	        for( i = 0; i < studentList.length; i++) {
+                document.writeln("Student code: " + `${studentList[i].code}` + "  -- Student Name:" + `${studentList[i].name}` +  
+                           " -- Student Age:  " + `${studentList[i].age}` +  " -- Student Sex: " + `${studentList[i].sex}` +"<br>");
+            }
+        }
+    });
+</script>
+		
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    width: 100%;
+    background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 100%;
+}
+.container1 {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+.main {
+    width: 220px;
+    height: 100px;
+    background: salmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px gray;
+}
+.main a {
+    padding: 20px;
+}
+a {
+    text-decoration: none;
+    color: indigo;
+}

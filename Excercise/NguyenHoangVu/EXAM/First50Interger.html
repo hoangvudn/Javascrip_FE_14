@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>First 50 Interger</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style_sum50interger.css">
+    </head>
+    <body>
+       <div class="container">
+           <div class="main">
+               <h2>This is program calculate sum of first 50 integer</h2>
+               <input type="button" id="result" Value="Sum of first 50 Integer">
+               <p id="sum">&nbsp;</p>
+           </div>
+           <div>
+            <a href="/index.html"><p>HOME PAGE</p></a>  
+         </div>
+       </div>
+    </body>
+    <script>
+        var $ = function(id) { return document.getElementById(id); };
+        var cal = function() {
+            var sum = 0;
+            for (i = 0 ; i < 50 ; i++) {
+                 sum += i;
+            }
+            $("sum").firstChild.nodeValue = sum;
+        }   
+        window.onload = function(){
+            $("result").onclick = cal;
+        }
+    </script>
+</html>

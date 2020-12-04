@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object & Array tutorial</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<table width="100%"  cellspacing="3" cellpadding="3">
+		<thead>
+			<th>Code</th>
+			<th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+		</thead>
+		<tbody>
+<script>
+	
+	var studentList = []
+
+	for(i=0;i<2;i++) {
+        var studentCode = prompt("Please input Student Code:");
+        var studentName = prompt("Please input Student Name:");
+        var studentAge = prompt("Please input Student Age:");
+        var studentSex = prompt("Please input Student Sex:");
+		var student = {
+			"code": studentCode,
+			"name": studentName,
+			"age": studentAge,
+			"sex": studentSex,
+		}
+		studentList.push(student)
+	}
+
+	for( i = 0; i < studentList.length; i++) {
+        
+	
+		document.writeln(`<tr>
+				<td>${studentList[i].code}</td>
+				<td>${studentList[i].name}</td>
+				<td>${studentList[i].age}</td>
+				<td>${studentList[i].sex}</td>
+			</tr>`)
+	}
+</script>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.div_swap {
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background: rebeccapurple;
+}
+.text_dom {
+    color: blue;
+    font-weight: 800;
+    font-size: large;
+}
+.text_dom1 {
+    color: crimson;
+    font-weight: lighter;
+    font-size: xx-large;
+}

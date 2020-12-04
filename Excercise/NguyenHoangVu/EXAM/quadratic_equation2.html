@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Quadratic Equation 2</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style_quadratic.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2>This is program Quadratic Equation</h2>
+            <div>
+                 <label for="text" >Value A: </label>
+                 <input type="text" id="value_a">
+            </div>
+            <div>
+                <label for="text" >Value B: </label>
+                <input type="text" id="value_b">
+           </div>
+           <div>
+                <label for="text" >Value C: </label>
+                <input type="text" id="value_c">
+           </div>
+           <div>
+                <label for="text" >Value X1: </label>
+                <input type="text" id="value_x1" disabled>
+           </div>
+      
+           <div class="button">
+               <input type="button" id="result" value="Submit">
+               <input type="button" id="clear" value="Clear">
+           </div>
+           <div>
+            <a href="/index.html"><p>HOME PAGE</p></a>  
+         </div>
+        </div>
+    </body>
+    <script>
+        var $ = function(id) {return document.getElementById(id); };
+        var cal = function(){
+            var a = $("value_a").value;
+                a = parseInt(a);
+            var b = $("value_b").value;
+                b = parseInt(b);
+            var c = $("value_c").value;
+                c = parseInt(c);
+            var x1,x2;
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("You must input number!");
+                clearValue();
+                $("value_a").focus();
+                return;
+            }
+
+            if (a == 0) {
+               if (b == 0) {
+                  alert("Equation no solution:");
+                  clearValue();
+                  $("value_a").focus();
+               }else {
+                  alert("Equation has one solution:  "
+                        + "x = " + (-c / b));
+               }
+               return;
+            }
+
+            delta = (b * b) - (4 * a * c);
+            if (delta > 0) {
+                x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                $("value_x1").value = "Equation has two solution X1: " + x1.toFixed(1) + " and X2: " + x2.toFixed(2);
+            } else if (delta == 0) {
+                x1 = -b / (2 * a);
+                $("value_x1").value = "The solution is X1 = X2:  " + x1;
+            } else {
+                alert("Equation no solution");
+            }
+        }
+
+        function clearValue() {
+         $("value_a").value = "";
+         $("value_b").value = "";
+         $("value_c").value = "";
+         $("value_x1").value = "";
+         $("value_a").focus();
+        }
+        window.onload = function(){
+           $("result").onclick = cal;
+           $("clear").onclick = clearValue;
+           $("value_a").focus();
+        }
+    </script>
+</html>

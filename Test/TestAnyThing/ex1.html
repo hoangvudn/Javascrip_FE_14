@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button id="submit_button">SUBMIT</button>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var joinList = function(){
+        alert("Test statement");
+    }
+    $("submit_button").onclick = joinList;
+    $("submit_button").onmouseover = joinList;
+    window.onload = function() {
+        alert("This is the window onload")
+    }
+   /* var showYear = function(){
+        var today = new Date();
+        alert("The year is " + today.getFullYear());
+    }   
+    showYear();*/
+
+   
+   /* var total = 0;
+    var average;
+    var sc;
+    function totalScores(name){
+        sc = prompt("Input name : " + name);
+        sc = parseInt(sc); 
+        /*total = total + sc;*/
+        /*return total + sc;
+    /*}
+      var arrName = ['toan','ly','hoa']
+      for ( i = 0; i <= 2; i++){
+          total = total + totalScores(arrName[i]);
+      }
+     /*total = total + totalScores("Toan");
+     total = totalScores("Ly");
+     total = totalScores("Hoa");*/
+    /* document.write(total + "<br>");
+     average = parseFloat(total/3);
+     document.write(average);
+    /*totalScores(sc1);
+    document.write("Total: " + totalScores(sc1));
+    total1 = parseInt((totalScores(sc1))/3);
+    average = parseFloat(total1);
+    document.write ("Average: " + average + "<br>")
+   /* var s = 0 ;
+    var number = 5 ;
+    var counter = 1 ;
+
+    do {
+          s  += counter;
+          counter++;
+    } while (counter <= number);
+    window.alert("Total :" + s);
+    document.write(s);
+
+    /*var human = prompt ("Please input ")
+        str = human.toLowerCase();
+    switch ( str ) {
+         case "man":
+         alert("You are man");
+         break;
+         case "woman":
+         alert("You are woman");
+         break;
+         case "gay":
+         alert("You are gay");
+         break; 
+         default:
+         alert("You are not human");
+    }
+    var entry;
+    var average;
+    var total = 0 ;
+    entry = prompt ("input score mathematic:");
+    entry = parseInt(entry);
+    var sc1 = entry;
+    total = total + sc1;
+
+    entry = prompt ("input score physics:");
+    entry = parseInt(entry);
+    var sc2 = entry;
+    total = total + sc2;
+
+    entry = prompt ("input history:");
+    entry = parseInt(entry);
+    var sc3 = entry;
+    total = total + sc3;
+
+    average = parseInt(total/3);
+
+    document.write ("Score1: " + sc1 + "<br>" + "Score2: " + sc2 + "<br>" + "Score13 " + sc3 + "<br>" 
+                    + "Average: " + average + "<br>")
+    
+   /* if (average < 50) {
+        alert("You fail");
+    }
+    if ((average > 50) && (average < 65)) {
+        alert("You pass but you trying");
+    }
+    if ((average > 65) && (average < 80)) {
+        alert("You pass");
+    }else if (average > 80) {
+        alert("You pass. You very good");
+    } */
+    
+  
+    /*switch ( average ) {
+         case  50 :
+         alert("You fail");
+         break;
+         case ((average < 50) && (average < 50)) :
+         alert("You pass but you trying");
+         break;
+         case ((average > 65) && (average < 80)):
+         alert("You pass");
+         break; 
+         default:
+         alert("You pass");
+    }*/
+
+</script>

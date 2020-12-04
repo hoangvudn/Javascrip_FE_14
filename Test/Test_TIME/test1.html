@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Show Colock</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+         <input type="text" id="addTime1" value ="">
+         <div id="addTime"></div>
+         <button type="button" id="start"> START </button>
+         <button type="button" id="stop"> STOP </button>
+    </body>
+    <script>
+         var $ = function(id) {return document.getElementById(id);}
+         //Start TIME 
+         function updateRealTime() {
+             var d = new Date();
+             var h = d.getHours();
+             var m = d.getMinutes();
+             var s = d.getSeconds();
+              
+             $("addTime").innerHTML = h + ":" + m + ":" + s;
+         }
+         //Stop TIME
+         function stopRealTime(){
+             clearInterval(updateRealTime);
+         }
+        
+         var time = function() {setInterval(() => {updateRealTime()}, 1000);};
+         var stop = function() {clearInterval(time)};
+         /*function stopTime() {
+             clearInterval(time);
+         }*/
+         //var stop = function(){clearInterval(time)};
+        // var time = setInterval(() => {updateRealTime()}, 10);
+         window.onload = function() {
+             $("start").onclick = time; 
+             $("stop").onclick = stopRealTime();
+             $("stop").onclick = stop;
+         }
+
+    </script>
+</html>

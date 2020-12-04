@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Countdown Application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./countdown.css">
+    </head>
+    <body>
+        <main>
+            <h1 id="displayText">Countdown To...</h1>
+            <label for="event">Event Name:</label>
+            <input type="text" name="event" id="event"><br>
+
+            <label for="date">Event date:</label>
+            <input type="text" name="date" id="date"><br>
+            <input type="button" name="countdown" id="countdown" value="countdown">
+            <input type="button" name="length_year" id="length_year" value="length_year">
+            <p id="message">&nbsp;</p>
+        </main>
+    </body>
+</html>
+<script>
+      "use strict";
+        var $ = function(id) { return document.getElementById(id); };
+        var displayLengthYear = function(){
+            var dt = $("date").value;
+            alert("Length of date:" + dt.length);
+        }
+        var calculateDays = function() {
+            
+            var event = $("event").value;
+            var dt = $("date").value;
+            var message = $("message").firstChild;
+            var h1 = $("displayText").value;
+
+            if (event.length == 0 || dt.length == 0){
+                message.nodeValue = "Please enter both a name and a date" + h1;
+                return;
+            }
+
+            if (dt.indexOf("/") == -1) {
+                message.nodeValue = "Please enter the date in MM/DD/YYYY format";
+                return;
+            }
+
+            var year = dt.substring(dt.length - 4);
+            if (isNaN(year)) {
+               message.nodeValue = "Please enter the date in MM/DD/YYYY format";
+               return;
+            }
+          
+            var date = new Date(dt);
+            if (date == "Invalid Date") {
+               message.nodeValue = "Please enter the date in MM/DD/YYYY format" ;
+               return;
+            }
+         
+            var today = new Date();
+            var oneDay = 24*60*60*10000;
+            var days = ( date.getTime() - today.getTime() ) / oneDay;
+            days = Math.ceil(days);
+
+            if (days == 0) {
+               message.nodeValue = "Hooray! Today is: ".concat(event.toLowerCase(),
+                            "!\n(", date.toDateString(), ") ");
+            }
+
+            if (days < 0) {
+                event = event.substring(0,1).toUpperCase(0) + event.substring(1);
+                message.nodeValue =  event.concat("  happdened ", Math.abs(days),
+                              " day(s) ago. \n (", date.toDateString(), ")") ;
+                var text = $("displayText").firstChild.nodeValue; 
+                $("displayText").firstChild.nodeValue = text + message.nodeValue;
+            }
+
+            if (days > 0) {
+                message.nodeValue =  day.toString().concat(" day(s) until ",
+                    event.toLowerCase(), "!\n(", date.toDateString(), ")") ;
+            }
+        };
+        window.onload = function() {
+            $("countdown").onclick = calculateDays;
+            $("length_year").onclick = displayLengthYear;
+            $("event").focus();
+        }
+         /*   var event = $("#event").val();
+            var dt = $("#date").val();
+            var message = $("#message");
+
+            if (event.length == 0 || dt.length == 0){
+                message.text("Please enter both a name and a date");
+                return;
+            }
+
+            if (dt.indexOf("/") == -1) {
+                message.text("Please enter the date in MM/DD/YYYY format" );
+                return;
+            }
+
+            var year = dt.substring(dt.length - 4);
+            if (isNaN(year)) {
+               message.text("Please enter the date in MM/DD/YYYY format");
+               return;
+            }
+          
+            var date = new Date(dt);
+            if (date == "Invalid Date") {
+               message.text("Please enter the date in MM/DD/YYYY format");
+               return;
+            }
+         
+            var today = new Date();
+            var oneDay = 24*60*60*10000;
+            var days = ( date.getTime() - today.getTime() ) / oneDay;
+            days = Math.ceil(days);
+
+            if (days == 0) {
+               message.text("Hooray! Today is: ".concat(event.toLowerCase(),
+                            "!\n(", date.toDateString(), ") ") );
+            }
+
+            if (days < 0) {
+                event = event.substring(0,1).toUpperCase(0) + event.substring(1);
+                message.text( event.concat("happened ", Math.abs(days),
+                              " day(s) ago. \n (", date.toDateString(), ")") );
+            }
+
+            if (days > 0) {
+                message.text( day.toString().concat(" day(s) until ",
+                    event.toLowerCase(), "!\n(", date.toDateString(), ")") );
+            }
+        });
+
+        $ ("#event").focus();
+    }); */
+</script>

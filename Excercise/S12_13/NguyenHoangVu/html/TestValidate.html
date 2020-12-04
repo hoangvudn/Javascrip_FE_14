@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test Validate</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+    </body>
+
+    <script>
+
+        var calculateFutureValue = function( investment, annualRate, years ) {
+            if ( investment <= 0 || annualRate <= 0 || years <= 0 ) {
+                throw new Error("Please check your entries for validity.");
+            }
+
+            var monthlyRate = annualRate / 12 / 100;
+            var months = years * 12;
+            var futureValue = 0 ;
+
+            for ( var i = 1; i <= months; i++ ) {
+                futureValue = ( futureValue + investment ) * ( 1 + monthlyRate);
+            }
+            
+        }
+     /* var isEmail = function(email) {
+    if (text.length === 0) return false;
+    var parts = text.split("@");
+    if (parts.length !== 2 ) return false;
+    if (parts[0].length > 64 ) return false;
+    if (parts[1].length > 255) return false;
+
+    var address = 
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var quotedText = "[\\s,/\\.\\-]";
+    var localPart = new RegExp( address + "|" + quotedText );
+    if ( !parts[0].match(localPart) ) return false;
+
+    var hostnames ="/^[a-zA-Z0-9]*$/";
+    var tld = "[a-zA-Z0-9] {2,6}";
+    var domainPart = new RegExp("^" + hostnames + tld + "$");
+    if ( !parts[1].match(domainPart) ) return false;
+
+    return true;
+};*/
+    </script>
+</html>

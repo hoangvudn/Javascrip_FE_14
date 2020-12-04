@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rectangle</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       <h3 id="myH3"> This is program calculate Rectangle  Area and Perimeter</h3>
+    </body>
+</html>
+<script>
+    var length = prompt ("Please input Length: ");
+        length = parseInt(length);
+    var width = prompt ("Please input Width: ");
+        width = parseInt(width);
+    var rec = length * width;
+    var pri = (2 * length) + (2 * width);
+        document.write("Length is : ".fontcolor("orange") +  length + "<br>");
+        document.write("Width is :  ".fontcolor("orange") + width + "<br>" + "<br>" + "<br>");
+        document.write("Rectangle area is : ".fontcolor("red") + rec + "<br>"); 
+        document.write("Perimeter is: ".fontcolor("red") + pri);
+        document.getElementById("myH3").style.color = "blue";
+</script>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>PIG application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./displayWin.css">
+    </head>
+    <body>
+         <main>
+             <h1>Let's Play PIG!</h1>
+             <fieldset>
+                 <legend>Rules</legend>
+                 <ul>
+                     <li>First player to 100 wins</li>
+                     <li>Play take turns rolls a 1 or choose to hold</li>
+                     <li>Turn ends when player rolls a 1 or choose to hold</li>
+                     <li>If player rolls a 1, they lose all points earned during the turn</li>
+                     <li>If player holds, points earn during the turn are added to their total</li>
+                 </ul>
+             </fieldset>
+
+             <label for="player1">Player 1</label>
+                   <input type="text" id="player1">
+             <label for="score1">Score 1</label>
+                   <input type="text" id="score1" value="0" disabled><br>
+             <label for="player2">Player 2</label>
+                   <input type="text" id="player2">
+             <label for="score2">Score 2</label>
+                   <input type="text" id="score2" value="0" disabled>
+             <input type="button" id="new_game" value="New Game"><br>
+
+             <section id="turn">
+                  <p><span id="current">&nbsp;</span>'s turn</p>
+                  <input type="button" id="roll" value="roll">
+                  <input type="button" id="hold" value="hold">
+
+                  <label for="die">Die</label>
+                       <input type="text" id="die" disabled>
+                  <label for="total">Total</label>
+                       <input type="text" id="total" disabled>
+             </section>
+         </main>
+    </body>
+</html>
+<script>
+       var $ = function(id) { return document.getElementById(id);};
+       var getRandomNumber = function(max) {
+           var random;
+           if(!isNaN(max)){
+               random = Math.random();
+               random = Math.floor(random * max);
+               random = random + 1;
+             return random;
+           }
+       };
+
+       var changePlayer = function() {
+           if ($("current").firstChild.nodeValue == $("player1").value) {
+               $("current").firstChild.nodeValue = $("player2").value;  
+           }else {
+               $("current").firstChild.nodeValue = $("player1").value;
+           }
+            $("die").value = "0";
+            $("total").value = "0";
+            $("roll").focus();
+       };
+
+       var newGame = function() {
+           $("score1").value = "0";
+           $("score2").value = "0";
+
+           
+           if ($("player1").value == "" || $("player2").value == "") {
+                  $("turn").removeAttribute("class");
+                  alert("Please enter two player name");
+             }else {
+                 $("turn").setAttribute("class","open");
+                 changePlayer();
+             }
+       };
+
+       var rollDice = function() {
+            if ($("player1").value == "" || $("player2").value == "") {
+                  $("turn").removeAttribute("class");
+                  alert("Please enter two player name");
+             }else if ("p"){
+                var total = parseInt( $("total").value);
+                var die = getRandomNumber(10);
+                if (die == 1){
+                 total = 0;
+                 changePlayer();
+                }else {
+                 total = total + die;
+                }
+                 $("die").value = die;
+                 $("total").value = total;
+             }
+            
+       };
+       
+       var displayWinner = function() {
+           span = this;
+           if ($("player1").value !== "" || $("player2").value !== "") {
+                  $("turn").removeAttribute("current");
+                  $("turn").setAttribute("current","displayWin");
+           } 
+       }
+       
+       var holdTurn = function() {
+             var score;
+             var total = parseInt( $("total").value);
+             if ($("current").firstChild.nodeValue == $("player1").value) {
+                 score = $("score1");
+             }else {
+                score = $("score2");
+             } 
+
+             score.value = parseInt(score.value) + total ;
+             if (score.value >= 100) {
+                 alert( $("current").firstChild.nodeValue + " WINS!");
+                 displayWinner();
+                 newGame();
+             }else {
+                 changePlayer();
+             } 
+       };
+       window.onload = newGame();
+       window.onload = function() {
+           $("new_game").onclick = newGame;
+           $("roll").onclick = rollDice;
+           $("hold").onclick = holdTurn;
+       }
+    /*$(document).ready(function() {
+         var getRandomNumber = function(max) {
+             var random;
+             if (!isNaN(max)) {
+                 console.log("getRandomNumber -> max", max)
+                 random = Math.random();
+                 random = Math.floor(random * max);
+                 random = random + 1;
+             }
+             return random;
+         };
+
+         var changePlayer = function(){
+             if ($("#current").text() == $("#player1").val() ) {
+                $("#current").text($("#player2").val() );
+             }else {
+                $("#current").text($("#player1").val() );
+             }
+             $("#die").val("0");
+             $("#total").val("0");
+             $("#roll").focus();
+         };
+
+         $("#new_game").click( function() {
+             $("#score1").val("0");
+             $("#score2").val("0"); 
+
+             if ( $("#player1").val() == "" || $("#player1").val() == "" ) {
+                  $("#turn").removeClass("open");
+                  alert("Please enter two player name");
+             }else {
+                 $("#turn").addClass("open");
+                 changePlayer();
+             }
+         });
+
+         $("#roll").click ( function() {
+             var total = parseInt( $("#total").val() );
+             var die = getRandomNumber(6);
+             if (die == 1){
+                 total = 0;
+                 changePlayer();
+             }else {
+                 total = total + die;
+             }
+
+             $("#die").val(die);
+             $("#total").val(total);
+         });
+
+         $("#hold").click( function() {
+             var score;
+             var total = parseInt( $("#total").val() );
+             if ($("#current").text() == $("player1").val() ) {
+                 score = $("#score1");
+             }else {
+                score = $("#score2");
+             } 
+
+             score.val(parseInt( score.val() ) + total );
+             if (score.val() >= 100) {
+                 alert( $("#current").text() + " WINS!");
+                 newGame();
+             }else {
+                 changePlayer();
+             }
+         });
+    });*/
+</script>

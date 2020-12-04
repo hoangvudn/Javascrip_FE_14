@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Greatest Common Divisor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <h2>This is program Greatest Common Divisor</h2>
+                <div>
+                     <label for="text" >Value A: </label>
+                     <input type="text" id="value_a">
+                </div>
+                <div>
+                    <label for="text" >Value B: </label>
+                    <input type="text" id="value_b">
+               </div>
+               <div>
+                    <label for="text" >Greatest Common Divisor: </label>
+                    <input type="text" id="value_x" disabled>
+               </div>
+          
+               <div class="button">
+                   <input type="button" id="result" value="Submit">
+                   <input type="button" id="clear" value="Clear">
+               </div>
+               <div>
+                <a href="/index.html"><p>HOME PAGE</p></a>  
+             </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var $ = function(id) {return document.getElementById(id); };
+
+        function gcd(x,y){
+            while( x!=y )   {
+                 if( x>y ) x = x - y;
+                  else y = y - x;
+             }
+            return x;
+         }
+
+         function greatestCommonDivisor(a,b) {
+            if (a == 0){
+                return b;
+            }
+            while (b !== 0) {
+                 if (a > b) {
+                    a = a - b;
+                 }else {
+                    b = b - a;
+                 }
+            }
+            return a;
+        };
+          /*document.writeln("Greatest Common Divisor : " + greatestCommonDivisor(32,9)) + "<br>"; 
+          document.writeln("Greatest Common Divisor UCLN : " + UCLN(40,8));*/
+        var cal = function(){
+            var x = $("value_a").value;
+                x = parseInt(x);
+            var y = $("value_b").value;
+                y = parseInt(y);
+            var z = $("value_x").value;
+                z = parseInt(z);
+            x = gcd(x,y);
+            $("value_x").value = x;
+        }
+        function clearValue() {
+         $("value_a").value = "";
+         $("value_b").value = "";
+         $("value_x").value = "";
+         $("value_a").focus();
+        }
+        window.onload = function(){
+            $("result").onclick = cal;
+            $("clear").onclick = clearValue;
+            $("value_a").focus();
+        }
+        /*var cal =  function() {
+            var x = $("value_a").value;
+            var y = $("value_b").value;
+            while ( x !== y) {
+               if ( x > y) {
+                   x -= y;
+               }else {
+                   y -= x;
+               } 
+            }
+            document.writeln("Greatest Common Divisor: " + y);
+        }*/
+      
+        /*var greatestCommonDivisor = function(){
+            var 
+        }*/
+     </script>
+</html>

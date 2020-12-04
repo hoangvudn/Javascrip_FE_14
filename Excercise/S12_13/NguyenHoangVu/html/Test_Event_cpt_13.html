@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Event</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+         <div id="btnPlay">SUBMIT</div>
+         <div id="button">SUBMIT</div>
+
+    </body>
+    <script>
+
+        var $ = function(id) { return document.getElementById(id); };
+
+        var attachEvent = function(node, eventName, hander) {
+            if (node.addEventListener) {
+                node.addEventListener(eventName, handler);
+            } else if (node.attachEvent) {
+                node.attachEvent("on" + eventName, handler)
+            }
+        };
+
+        var detachEvent = function(node, eventName, handler) {
+            if ( node.removeEventListener ) {
+                 node.removeEventListener(eventName, handler);
+            } else if (node.detachEvent) {
+                 node.detachEvent("on" + eventName, handler);
+            }
+        };
+
+        var hover = function() { console.log(this.id + " was hovered over!"); };
+        var click = function() { console.log(this.id + " was clicked!"); };
+
+        window.onload = function() {
+           // $("button").onclick = eventHandlerName;
+
+            var btnPlay = $("btnPlay");
+            attachEvent(btnPlay, "click", click);
+            attachEvent(btnPlay, "mouseover", hover);
+        }
+    </script>
+</html>

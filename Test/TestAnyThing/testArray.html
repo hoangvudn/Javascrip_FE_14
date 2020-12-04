@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test Array</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        /*var array = [3,2,4,15,9,12,21];
+        //names.push("Ray", "Pren");
+        alert(array);
+        array.sort();
+        alert(array);
+        array.push(45,23);
+        alert(array);
+       // array.pop();
+          //document.write(array);
+        //array.splice(2,3);
+         // document.write(array);
+        //array.splice(2,3,107);  
+        //alert(array);
+        array.slice(2,3);  
+        alert(array);
+
+        var numbers=[1, 4, 9, 16];
+        var squared = numbers.map(function( value ){
+	        return value * value;
+        });
+        alert(squared);*/
+        window.onload = function(){
+            if (localStorage.hits){
+                localStorage.hits = parseInt(localStorage.hits) + 1;
+            }else { localStorage.hits = 1; }
+
+            if (sessionStorage.hits) {
+                sessionStorage.hits = parseInt(sessionStorage.hits) + 1;
+            }else { sessionStorage.hits = 1; }
+
+            alert("Number of hits this browser: " + localStorage.hits + "\n\n" + 
+                  "Number of hits this session: " + sessionStorage.hits)
+        };
+
+    </script>
+</html>

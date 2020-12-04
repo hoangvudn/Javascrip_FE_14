@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Star Traiangle</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styleStarTraiangle.css">
+    </head>
+    <body>
+         <div class="container">
+               <div class="main">
+                  <h2>Print Star Traiangel</h2>
+                  <!-- <div>
+                    <label for="text" >Input Month: </label>
+                    <input type="text" id="value_a">
+                  </div>-->
+                  <div class="button">
+                    <input type="button" id="result" value="Submit">
+                  </div>
+               <p id="show" class="effectDom">&nbsp;</p>
+               </div>
+               <div>
+                 <a href="/index.html"><p>HOME PAGE</p></a>  
+                </div>
+         </div>
+        
+    </body>
+    <script>
+        var $ = function(id) {return document.getElementById(id); };
+       /* function displayPyramid(n) { 
+            for (var i = 0; i < n; i++) { 
+                var str = ''; 
+               for (var j = 1; j < n-i; j++) { 
+                   str = str + ' '; 
+               } 
+                   for (var k = 1; k <= (2*i+1); k++) { 
+                   str = str + '*'; 
+                   
+               } 
+               /*document.writeln(str + "<br>");
+               $("show").firstChild.nodeValue = str + "<br>" + "\n" +"Boom";*/
+           /* } */
+       /* }*/
+        
+        var cal =  function(){ 
+           var n = prompt("Please input number star: "); 
+               n = parseInt(n)
+           var i, j; 
+           for(i=0; i<n; i++) { 
+             for(j=0; j<=i; j++){ 
+               /* $("show").firstChild.nodeValue = "* "; 
+                x = $("show").value;*/
+                document.writeln("* ");
+             } 
+               document.writeln("<br>");
+           } 
+        } 
+
+      var cal1 =   function() { 
+            var n = prompt("Please input number star: "); 
+                n = parseInt(n)
+            for (var i = 0; i < n; i++) { 
+            var str = ''; 
+                for (var j = 1; j < n-i; j++) { 
+                    str = str + ' '; 
+                } 
+                    for (var k = 1; k <= (i+1); k++) { 
+                    /*str = str + '*'; */
+                    document.writeln("* ");
+                } 
+                document.writeln("<br>"); 
+            } 
+        }
+
+        /*var cal = function() {
+            var star = $("value_a").value;
+                star = parseInt(star);
+            printStars(star);
+        }*/
+        window.onload = function(){
+            $("result").onclick = cal;
+            $("clear").onclick = cal1;
+        }
+   </script>
+</html>

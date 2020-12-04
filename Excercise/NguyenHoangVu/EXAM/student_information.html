@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Student's Information</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+     
+            <h2>Manager Student's Information</h2>
+        
+                 <p id="show"></p>
+       
+    </body>
+    <script>
+         /*var studentInformation = [];
+         for (i = 0; i < 3 ; i++){
+            /*var name = prompt("Please input Name:");
+            var age1  = prompt("Please input Age:");*/
+                /*var student = { 
+                                fullname: "name",
+                                age: 25,
+                              }
+               /* studentInformation.push[student];*/
+        /* }*/
+      
+      
+        /*var studentList = function(){*/
+            for ( var i = 0; i < 3 ; i++){
+                 var student = { 
+                                fullname: "ADAM",
+                                age: 25
+                              }
+                
+            }
+            for (var i = 0; i < student.length; i++){
+                 document.getElementById("show").innerHTML = student[i].fullname + " is " + student[i].age + " years old." + "<br>";
+            }
+         
+        /* for(var i = 0; i < stdList.length; i++ ) {
+             document.write()
+         }*/
+      /*  var Student = {
+    data : [],
+    viewStudent : function(){
+        // Lấy danh sách sinh viên
+        var listStudent = this.data;
+ 
+        // Lặp và hiển thị sinh viên
+        for(var i = 0; i < listStudent.length; i++){
+            document.write("<div>" + listStudent[i].id + "|" + listStudent[i].name + "|" + listStudent[i].email + "</div>");
+        }
+    },
+    addStudent : function(id, name, email){
+        // Tạo thông tin sinh viên
+        var item = {
+            id : id,
+            name : name,
+            email : email
+        };
+ 
+        //Thêm sinh viên
+        this.data.push(item);
+    },
+   
+  
+};
+document.write('<h4>Danh sách sinh viên ban đầu</h4>');
+Student.viewStudent();
+ 
+document.write('<h4>Danh sách sinh viên sau khi thêm hai sinh viên</h4>');
+Student.addStudent("sv001", 'Nguyễn Văn Cường', "thehalfheart@gmail.com");
+Student.addStudent("sv002", 'Vũ Thị Thu Tình', "freetuts.net@gmail.com");
+Student.viewStudent();
+ 
+document.write('<h4>Danh sách sinh viên sau khi xóa một sinh viên</h4>');
+Student.removeStudent('sv001');
+Student.viewStudent();
+ 
+document.write('<h4>Danh sách sinh viên sau khi sửa thông tin</h4>');
+Student.editStudent('sv002', "Tên Sinh Viên Mới", "mrcuong.winter@gmail.com");
+Student.viewStudent();*/
+    </script>
+</html>

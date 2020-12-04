@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My Task List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       <h2>This is my task list</h2>
+       <input type="text" id="input_data">
+       <ul id="task_list"></ul>
+       <input type="button" id="add_list" style="width: 100px;" value="SUBMIT">
+    </body>
+
+    <script>
+        var $ = function(id) {return document.getElementById(id); };
+        var tasks = [];
+
+        var displayTask = function() {
+            var list = "";
+            //if there are no tasks in tasks array, check storage
+            if (tasks.length === 0) {
+                // get tasks from storage or empty string if nothing in storage
+                 var storage = localStorage.getItem("tasks" || "");
+
+                // if not empty, convert to array and store in global tasks variable
+                if (storage.length > 0) { tasks = storage.split("|"); } 
+            }
+            // if there are tasks in array, sort and create tasks string
+            if (tasks.length > 0) {
+                tasks.sort();
+                list = tasks.join("\n");
+            }
+
+            //display tasks string and set focus on task text box
+            for(var i = 0; i< list.length; i++){
+                   var note = list[i];
+                   $("task_list").append(note);
+               }
+            $("input_data").focus();
+        }
+
+        var addList = function() {
+            var task = $("input_data");
+            if (task.value === "") {
+                alert("Please enter a task");
+            } else {
+                //add task to array and local storage
+                tasks.push(task.value);
+                localStorage.tasks = tasks.join("|");
+
+                //clear task text box and re-display tasks 
+                task.value = "";
+                displayTask();
+            }
+        }
+
+        window.onload = function() {
+            $("add_list").onclick = addList;
+            displayTask();
+        }
+    </script>
+</html>

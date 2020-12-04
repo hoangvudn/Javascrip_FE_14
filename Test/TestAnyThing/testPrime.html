@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test Prime</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>GeeksforGeeks</h1> 
+        <h4>check number is prime or not</h4> 
+      
+        <form name="myform"> 
+            Enter the number: 
+            <input type="text" name=n value=""> 
+            <input type="button" value="Check" onClick="checkPrime()"> 
+            <br> 
+        </form> 
+    </body>
+</html>
+<script>
+           function checkPrime() { 
+              
+              var n, i, flag = true; 
+                
+              // Getting the value form the 
+              // text field using DOM 
+              n = document.myform.n.value; 
+              n = parseInt(n) 
+              for (i = 2; i <= n - 1; i++) 
+                  if (n % i == 0) { 
+                      flag = false; 
+                      break; 
+                  } 
+                    
+              // Check and display output 
+              if (flag == true) 
+                  alert(n + " is prime"); 
+              else
+                  alert(n + " is not prime"); 
+          }
+    
+</script>

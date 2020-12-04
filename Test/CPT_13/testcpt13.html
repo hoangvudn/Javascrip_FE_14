@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main" id="main">
+      <div class="center">
+        <button type="button" id="ask">ASK ABOUT LOVE</button>
+      </div>
+     
+      <div id="ok" class="ok">
+         <div class="text">
+            <h2>Do You Love Me</h2>
+         </div>
+   
+        <div style="display: flex;" class="input-text">
+          <input type="button" id="Yes" value="YES" >
+          <input type="button" id="No" value="NO" >
+        </div>
+      </div>
+  
+      
+    </div>
+    <div id="agree" class="agree"><p> MEETOO </p></div>
+  </body>
+  <!-------------------------------SCRIPT------------------------------>
+  <script>
+    var $ = function (id) {
+      return document.getElementById(id);
+    };
+    var timer;
+    var startLove = function () {
+      $("ok").setAttribute("class", "ok1");
+    };
+    var autoLove = function () {
+      $("ask").style.color = "red";
+      $("ask").style.fontSize = "25px";
+      $("ask").innerHTML = "YOU DON'T SAY ANYTHING. I THINK YOU AGREE!";
+    };
+    var agreeLove = function () {
+      $("agree").style.fontSize = "230px";
+      $("agree").setAttribute("class", "agree1");
+    }
+    var time = function() {setTimeout(() => {startLove()}, 1000);};
+    var auto = function() {setTimeout(() => {autoLove()}, 2500);}
+
+    /*var time = function () {
+            setTimeout(function (e) {
+            console.log("🚀 ~ file: testcpt13.html ~ line 40 ~ e", e)
+            $("ok").setAttribute("class", "ok1");
+        }, 1000);
+      }*/
+    window.onload = function () {
+        $("ask").onclick = time;
+        $("ask").onmousedown = auto;
+        $("Yes").onclick = agreeLove;
+        $("No").onclick = agreeLove;
+    };
+  </script>
+</html>

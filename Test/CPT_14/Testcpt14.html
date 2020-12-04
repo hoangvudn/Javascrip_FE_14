@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+         <input type="button" id="camera" value="Click">
+     <script>
+         // EXample about Closure
+        /* var str1 = function(a,b,c) {
+             var dtb = a + b + c;
+             var result = function(avg) {
+                 x = parseInt(avg);
+                 return dtb + x ;
+             }
+             return result;
+         }
+         var point1 = str1(5,7,8);
+         var sum = point1(25);
+         alert(sum);*//*parseInt*/
+         var $ = function(id) { return document.getElementById(id); };
+         var tax = {
+              rate: 0.075,
+              calc: function(sub) {
+                    return (sub + (sub + this.rate)).toFixed(2);
+               },
+               displayFullPrice: function(subtotal) {
+         
+                    return function() {
+                       alert("Full Price = $" + this.calc(subtotal));
+                    }.bind(this);
+               }
+              };
+             $("camera").click(tax.displayFullPrice(125));
+
+     </script>
+    </body>
+</html>

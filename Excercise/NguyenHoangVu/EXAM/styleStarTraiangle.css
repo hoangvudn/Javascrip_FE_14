@@ -1,0 +1,11 @@
+body {
+    width: 100%;
+    background: lightblue;
+}
+.contaier {
+    width: 100%;
+}
+.container .main {
+    width: 50%;
+    margin: 0 auto;
+}

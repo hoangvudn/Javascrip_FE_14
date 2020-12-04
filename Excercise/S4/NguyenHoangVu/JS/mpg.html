@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Miles Per Gallan </title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <h1>This is program calculate miles per gallon</h1>
+    <form action="" >
+        <label for="miles">Miles Driven</label>
+        <input type="text" id="miles"> 
+        <label for="gallons">Gallon of Gas Used</label>
+        <input type="text" id="gallons"> 
+        <label for="mpg">Miles Per Gallon</label>
+        <input type="text" id="mpg" disabled> 
+        <input type="button" id="cal" value="Calculate MPG">
+        <input type="button" id="blank" value="Erase">
+    </form>
+</body>
+</html>
+<script>
+     "use strict";
+    var $ = function(id) {
+            return document.getElementById(id);
+        };
+
+    var calculateMpg = function(miles, gallons) {
+        var mpg = (miles / gallons);
+        mpg = mpg.toFixed(1);
+        return mpg;
+    };
+
+    var processEntries = function() {
+        var miles = parseFloat($("miles").value);
+        var gallons = parseFloat($("gallons").value);
+        var resultMpg = 0;
+     
+        if ((miles < 0) || (gallons < 0)){
+            alert("Please input again:")
+        }else if (isNaN(miles) || isNaN(gallons)) {
+            alert("You input not number, Please input again");
+        }else {
+            $("mpg").value = calculateMpg(miles, gallons);
+        }
+
+        resultMpg = parseInt($("mpg").value);
+        if (resultMpg < 30){
+                alert("Driven very lower");
+            }else if ((resultMpg > 30) && (resultMpg < 60)){
+                alert("Driven OK");
+            }else if ((resultMpg > 60) && (resultMpg < 80)){
+                alert("Driven fast");
+            }else {
+                alert("Driven very FAST!!! WARNING you can die")
+            }
+    };
+
+    var blankText = function() {
+        $("miles").value="";
+        $("gallons").value="";
+        $("mpg").value="";
+    }
+   
+    window.onload = function() {
+        $("cal").onclick = processEntries;
+        $("blank").onclick = blankText;
+        $("miles").focus();
+    };
+   
+    /*alert("Please input miles:");
+    var miles = prompt("Please enter miles:");
+        miles = parseFloat(miles);
+    var gallons = prompt("Please enter gallon:");
+        gallons = parseFloat(gallons);
+    var mpg = miles/gallons;
+        mpg = parseInt(mpg);
+    alert("Miles per Gallon is: " + mpg);
+    document.write("Miles per Gallon is: " + mpg);*/
+</script>

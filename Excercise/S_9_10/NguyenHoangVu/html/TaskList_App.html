@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Task List Application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style_tasklist.css">
+    </head>
+    <body>
+         <div class="container">
+             <div>
+                <h2>Task Manager Application</h2>
+                <input type="text" id="input_task" placeholder="Add new task in here...">
+                <div class="circle_add" id="circle_add">
+                    <p id="add_list">+</p>
+                    <div id="orangeBox">
+                        <span id="x">X</span>
+                    </div>
+                </div>
+             </div>
+          
+            <!--<div class="container_ul">-->
+                 <ul id="task_list">
+                    <li>Learn Javascript</li>
+                    <li>Never Stop Trying</li>
+                    <li>Learn English</li>
+                    <li>Learn Reacts</li>
+                    <li>I Have To Trying Learn FE </li>
+                    <li>Learn English</li>
+                 </ul>
+               <!--</div>-->
+               <ul id="notes"></ul>
+         </div>
+    </body>
+
+    <script>
+           var $ = function(id) { return document.getElementById(id); };
+           //Nguyen Hoang Vu- Copyright from W3SCHOOL------------------
+           var tasks = [];
+           var myNodelist = document.getElementsByTagName("li");
+           var i;
+           for (i = 0; i < myNodelist.length; i++) {
+               var span = document.createElement("span");
+               var txt = document.createTextNode("\u00D7");
+               span.className = "close";
+               span.appendChild(txt);
+               myNodelist[i].appendChild(span);
+           }
+
+           var close = document.getElementsByClassName("close");
+           var i;
+               for (i = 0; i < close.length; i++) {
+                   close[i].onclick = function() {
+                   var div = this.parentElement;
+                   div.style.display = "none";
+                   }
+               }
+
+           var list = document.querySelector('ul');
+           list.addEventListener("click", function(ev) {
+           if (ev.target.tagName === 'LI') {
+               ev.target.classList.toggle('checked');
+           }
+           }, false);
+
+        function newElement() {
+           var li = document.createElement("li");
+           var inputValue = document.getElementById("input_task").value;
+           var t = document.createTextNode(inputValue);
+           li.appendChild(t);
+           if (inputValue === '') {
+              alert("Please input data...");
+           } else {
+                  var data = localStorage.getItem("notes");
+                  notes = null;
+                  if(data != null)
+                     {
+                        notes = JSON.parse(data);
+                     }
+                  if(notes == null){
+                       notes = [];
+                     }
+                   notes.push($("input_task").value);
+                   localStorage.setItem("notes", JSON.stringify(notes));
+                   document.getElementById("task_list").appendChild(li);
+                   refreshNotes();
+           }
+                  document.getElementById("input_task").value = "";
+         
+            var span = document.createElement("span");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+             }
+            }
+        }
+
+        function refreshNotes(){
+           var notesElement = $("notes");
+               notesElement.empty;
+           var notes = JSON.parse(localStorage.getItem("notes"));
+               for(var i = 0; i< notes.length; i++){
+                   var note = notes[i];
+                   notesElement.append("<li>"+note+"</li>");
+               }
+        }
+
+        function clearNotes(){
+           localStorage.notes = "";
+        }
+        window.onload = refreshNotes();
+        window.onload = function() {
+            $("add_list").onclick = newElement;
+            $("x").onclick = clearNotes;
+        }
+    </script>
+</html>

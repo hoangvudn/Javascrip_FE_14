@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Days of Month</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styleDayOfMonth.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <h2>This is program Return Days of Month of Current Year</h2>
+                <div>
+                     <label for="text" >Input Month: </label>
+                     <input type="text" id="value_a">
+                </div>
+                <div class="button">
+                    <input type="button" id="result" value="Submit">
+                    <input type="button" id="clear" value="Clear">
+                </div>
+                <p id="show" class="effectDom">&nbsp;</p>
+            </div>
+            <div>
+                <a href="/index.html"><p>HOME PAGE</p></a>  
+             </div>
+        </div>
+    </body>
+    <script>
+         var $ = function(id) {return document.getElementById(id); };
+         var getDaysInMonth = function(month,year) {
+             return new Date(year, month, 0).getDate();
+         };
+
+         var cal = function(){
+            var m = $("value_a").value;
+                m = parseInt(m);
+            var d = new Date();
+            var n = d.getFullYear();
+            if (isNaN(m)){
+                $("show").firstChild.nodeValue = "Please input number of month";
+                $("show").removeAttribute("class");
+                $("show").setAttribute("class", "effectDom2")
+            } else if ( (m < 1) || (m > 12)){
+                $("show").firstChild.nodeValue = "Please input number of month in range from 1 to 12";
+                $("show").removeAttribute("class");
+                $("show").setAttribute("class", "effectDom1")
+            } else {
+                $("show").firstChild.nodeValue = "Days of month: " + getDaysInMonth(m,n);
+                $("show").removeAttribute("class");
+                $("show").setAttribute("class", "effectDom3")
+            }
+         }
+
+         function clearValue() {
+         $("value_a").value = "";
+         $("value_a").focus();
+        }
+         window.onload = function(){
+             $("result").onclick = cal;
+             $("clear").onclick = clearValue;
+         }
+         
+         document.writeln("Day in month: " + getDaysInMonth(m,n));
+    </script>
+</html>

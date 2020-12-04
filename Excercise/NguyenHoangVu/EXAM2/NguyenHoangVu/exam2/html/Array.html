@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Array</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/Style.css">
+    </head>
+    <body>
+        <h3 id="element" class="element" >&nbsp;</h3> 
+        <p id="element1">&nbsp;</p>
+        <!--<textarea  id="listitem" cols="30" rows="10"></textarea>-->
+    </body>
+    <script>
+           /*var inputArray = [];
+           var size = 5; //Maximum Array size
+
+           for(var i=0; i<size; i++) {
+	
+	             //Taking Input from user
+	              inputArray[i] = prompt('Enter Element ' + (i+1));
+                   }
+
+           //Print the array in the console.
+            document.writeln(inputArray);*/
+    
+        //var inputArray = function() {
+          
+            //var arrayDisplay = "";,
+            
+            var arrayA = [12,31,55,11,872,21,54,66,99,12];
+            var $ = function(id) {return document.getElementById(id); };
+            function addShow() {
+               var arrayDisplay = "";
+               var x = [];
+               for (var i = 0; i < arrayA.length; i++) {
+                    //x.push(arrayA[i]);
+                    arrayDisplay += arrayA[i] + "    ";
+               }
+               //arrayDisplay += x.join(" ");
+               $("element").innerHTML = arrayDisplay;
+               $("element").style.color = "red";
+               $("element").style.fontSize = "50px";
+               //document.writeln(arrayDisplay);
+              // $("listitem").value = arrayDisplay;
+
+               //document.writeln(arrayDisplay);
+                //arrayA.sort(function(a, b){return a-b});
+                //document.writeln(arrayA); 
+            }
+
+            function sortArrayA() {
+                arrayA.sort(function(a, b){return a-b});
+                $("element").innerHTML = arrayA;
+                $("element").style.color = "red";
+                $("element").style.fontSize = "50px"; 
+            }
+
+            function findElementArray() {
+                var x = prompt("Input number you want finding: ");
+                    x = parseInt(x);
+                var findPosition = [];
+                var idx = arrayA.indexOf(x);
+                while ( idx != -1){
+                    findPosition.push(idx);
+                    idx = arrayA.indexOf(x, idx + 1);
+                }
+                if (findPosition.length == 0) {
+                    alert("This element not exits in Array: ");
+                } else {
+                    //alert("Position of this element is: " + findPosition);
+                    $("element").innerHTML = "Position of this element is: " + findPosition;
+                    $("element").style.color = "green";
+                    $("element").style.fontSize = "50px";
+                }
+            }
+
+            function findMax() {
+               var max = arrayA[0];
+                for( var i = 0; i < arrayA.length; i++ ){
+                     if ( max < arrayA[i]){
+                        max = arrayA[i];
+                     }
+                }
+                //alert("Max is: " + max);
+                $("element").innerHTML = "Max number in array is: " + max;
+                $("element").style.color = "red";
+                $("element").style.fontSize = "50px";
+            }
+
+            function sumArray() {
+                var sum = 0;
+                for( var i = 0; i < arrayA.length; i++ ){
+                     sum += arrayA[i];
+                }
+                //alert("Sum of arrays are: " + sum)
+                $("element").innerHTML = "Sum all element in array is: " + sum;
+                $("element").style.color = "red";
+                $("element").style.fontSize = "50px";
+            }
+            
+            function sortDescending() {
+                    arrayA.sort(function(a, b){return b-a});
+                    $("element").innerHTML = arrayA;
+                    $("element").style.color = "red";
+                    $("element").style.fontSize = "50px"; 
+            }
+            //var z = prompt("Input number of element");
+
+            function mainMenu(){
+                var numberChoose = prompt("Please choose function to process: 1: Print Array --- 2: Find element --- " + 
+                                       "3: Sort element -- 4: Find max element --- 5: Calculate sum all element --- " + 
+                                        "6: Sort element descending.");
+                numberChoose = parseInt(numberChoose);
+                switch (numberChoose) {
+                       case 1:
+                       addShow();
+                       break;
+                       case 2:
+                       findElementArray();
+                       break;
+                       case 3:
+                       sortArrayA();
+                       break;
+                       case 4:
+                       findMax();
+                       break;
+                       case 5:
+                       sumArray();
+                       break;
+                       case 6:
+                       sortDescending();
+                       break;
+                       default:
+                       alert("Please input function:");
+                       break;
+                } 
+               
+            }
+            
+            window.onload = mainMenu();
+            //window.onload = addShow;
+            //var a = prompt("Please input number element of Array: ");
+            
+            /*var arrayA = [a];
+            for ( i = 0; i < arrayA.length; i++) {
+                arrayDisplay += arrayA[i] + " ";
+            }
+            document.writeln(arrayDisplay);*/
+       // }
+        //----------------------SWITCH FUNCTION ------------------------------------
+     
+
+    </script>
+</html>

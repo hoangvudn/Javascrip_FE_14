@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       
+    </body>
+</html>
+<script>
+    function evenNumber(){
+      var arrayDisplay = "";
+      var arrayName = [-33, -23, -16,-10,-4, 0, 6,  9, 15, 17, 23, 35, 37];
+      var count = 0;
+      for (var i = 0; i < arrayName.length; i++) {
+          if ((arrayName[i]) % 2 === 0 ) {
+              arrayDisplay +=arrayName[i] + "<br>" ;
+            }
+      }
+       
+       document.write(arrayDisplay);
+    }
+
+    function negativeNumber(){
+      var arrayDisplay = "";
+      var arrayName = [-33, -23, -16,-10,-4, 0, 6,  9, 15, 17, 23, 35, 37];
+      for (var i = 0; i < arrayName.length; i++) {
+          if ((arrayName[i]) < 0 ) {
+              arrayDisplay +=arrayName[i] + "<br>" ;
+          }
+       }
+       document.write(arrayDisplay);
+    }
+    
+    function testPrime1(){
+      const array = [-33, -23, -16,-10,-4, 0, 6, 2, 9, 15, 17, 23, 35, 37];
+
+         const isPrime = (num) => {
+         if (num <= 1) {
+            return false;
+         } else if (num === 2) {
+            return true;
+         } else {
+         for (let i = 2; i < num; i++)
+            if (num % i === 0)
+                return false;
+         return true;
+         }
+     }
+
+     document.write(array.filter(isPrime)); 
+    }
+
+    function primeArray(){
+      var arrayDisplay = "";
+      var arrayName = [-33, -23, -16,-10,-4, 0, 6,  9, 15, 17, 23, 35, 37];
+      var bl;
+      for (var i = 0; i < arrayName.length; i++) {
+         for (var j = 2; j < arrayName[i]; j++) {
+           
+            if ( arrayName[i] % j === 0 ) {
+                  bl = false;
+            }else {
+                  bl = true;
+            }
+        
+         }
+         
+         if (bl === true) {
+                arrayDisplay +=arrayName[i] + "<br>" ;
+            }
+      }
+     
+       document.write(arrayDisplay);
+    }
+
+      function test_prime(n){
+         if (n===1) {
+            return false;
+         }else if(n === 2){
+            return true;
+         }else{
+            for(var x = 2; x < n; x++){
+               if(n % x === 0){
+               return false;
+               }
+            }
+          return true;  
+         }
+      }
+    
+     function isPrime(n) { 
+              var bl = true;
+              /*if ( n < 0 ) {
+                  alert("Negative Number");
+                  break;
+              }*/
+              for (i = 2; i <= n - 1; i++) {
+                  if (n % i == 0) { 
+                      bl = false; 
+                  }
+              }
+              // Check and display output 
+              if (bl == true) {
+                 alert( " Is prime"); 
+              }else {
+                 alert(" Is not prime");
+              }  
+             /* if ( n = 1 ) {
+                  alert("Is not prime");
+                  break;
+              }*/
+    }
+    
+    function maxNumber(){
+       var arrayDisplay = "";
+       var arrayName = [-33, -23, -16,-10,-4, 0, 6,  9, 15, 17, 23, 35, 37];
+       var maxNumber = arrayName[0];
+       var minNumber = arrayName[0];
+       for (var i = 0; i < arrayName.length; i++) {
+          if ( maxNumber < arrayName[i] ) {
+               maxNumber = arrayName[i];
+             }
+        }
+        document.write("Max Number :" +  maxNumber + "--------------");
+
+        for (var i = 0; i < arrayName.length; i++) {
+          if ( minNumber > arrayName[i] ) {
+               minNumber = arrayName[i];
+             }
+        }
+        document.write("Min Number :" +  minNumber);
+     
+    }
+
+    function odd5Number() {
+      var arrayDisplay = "";
+      var arrayName = [ -23, -16,-10,-4, 0, 6, 9, 15, -33, 17, 23, 35, 37];
+      var count = 0;
+      var oddArray = [];
+      for (var i = 0; i < arrayName.length; i++) {
+          if ( ((arrayName[i]) % 2 !== 0) && (count < 5) ) {
+              count++;
+              oddArray.push(arrayName[i]);
+          }
+      }
+          oddArray.sort(function(a, b){return b - a});
+          arrayDisplay += oddArray + "<br>" ;
+          document.write(arrayDisplay);
+    }
+
+    function even5Number() {
+      var arrayDisplay = "";
+      var arrayName = [ -23, -16,-10,-4, 0, 6, 9, 15, -33, 17, 23, 35, 37];
+      var count = 0;
+      var evenArray = [];
+      for (var i = 0; i < arrayName.length; i++) {
+          if ( ((arrayName[i]) % 2 == 0) && (count < 5) ) {
+              count++;
+              evenArray.push(arrayName[i]);
+          }
+      }
+          evenArray.sort(function(a, b){return a - b});
+          arrayDisplay += evenArray + "<br>" ;
+          document.write(arrayDisplay);
+    }
+
+         /*---------------------------------------------------*/
+         
+         /*---------------------------------------------------*/
+    /*----------------------------------------SWITCH---FUNCTION------------------------->*/
+    var number = prompt("Please input function: 1: Even Number; 2: Negative Number; 3: Prime Number; 5: Max Number; 6: Odd 5Number; 7: Even 5Number");
+        number = parseInt(number);
+    switch (number) {
+       case 1:
+          evenNumber();
+          break;
+       case 2:
+          negativeNumber();
+          break;
+       case 3:
+          primeArray();
+          break;
+       case 4:
+          var n1 = prompt("Please input to check Prime");
+              n1 = parseInt(n1);
+          test_prime(n1);
+          break;
+        case 5:
+          maxNumber();
+          break;
+        case 6:
+          odd5Number();
+          break;
+        case 7:
+          even5Number();
+          break;
+        case 8:
+          testPrime1();
+          break;
+       default:
+          alert("Please input function")
+          break;
+    }
+    
+
+
+   /* for (var i = 0; i < arrayName.length; i++) {
+          if ((arrayName[i]) % 5 === 0 ) {
+            arrayDisplay +=arrayName[i] + "<br>" ;
+          }
+      
+          /* document.write(arrayDisplay[i] + "<br>");*/
+   /* } */
+    /*document.write("Number div 5 :" + "<br>"  + arrayDisplay + "<br>");*/
+  
+
+   
+    /*------------------------------------------------------*/
+   /* var minNumber = arrayName[0];
+   
+   for (var i = 0; i < arrayName.length; i++) {
+      
+         if ( minNumber > arrayName[i] ) {
+              minNumber = arrayName[i];
+            } 
+
+   }
+   document.write("MIN Number :" + minNumber );
+    
+    /*var total = 0;
+    var number = 5;
+    for ( counter=1; counter <= number; counter++) {
+        total += counter;
+    }
+     document.write(total);*/
+
+
+   /* var s = 0 ;
+    var number = 5 ;
+    var counter = 1 ;
+
+    do {
+          s  += counter;
+          counter++;
+    } while (counter <= number);
+    window.alert("Total :" + s);
+    document.write(s);*/
+</script>

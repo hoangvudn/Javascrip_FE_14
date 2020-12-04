@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fibonacci</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+          <div class="container">
+              <div class="main">
+                <h2>This is program print first 20 numbers of Fibonacci Numbers</h2>
+                <input type="button" id="result" Value="First 20 number of Fibonacci">
+                <p id="show">&nbsp;</p>
+              </div>
+              <div>
+                <a href="/index.html"><p>HOME PAGE</p></a>  
+             </div>
+          </div>
+    </body>
+    <script>
+        var $ = function(id) {return document.getElementById(id); };
+        var calFibo = function(n) {
+            var fib = [0, 1];
+            for (var i = fib.length; i < n; i++) {
+                 fib[i] = fib[i - 2] + fib[i - 1];
+            }
+            $("show").firstChild.nodeValue = fib;
+        
+        }  
+        window.onclick = function(){
+            $("result").onclick = calFibo(20);
+        }
+        /*var number = 100;
+        var n1 = 0, n2 = 1, nextTerm;
+        nextTerm = n1 + n2;
+
+        while (nextTerm <= number) {
+          document.write(nextTerm + " ") + "<br>" ;
+
+         n1 = n2;
+         n2 = nextTerm;
+         nextTerm = n1 + n2;
+        }*/
+         /*var $ = function(id) {return document.getElementById(id); };
+         var calFibo = function(n){
+          
+          if (n===1) 
+          {
+           return [0, 1];
+          } 
+          else
+          {
+            var s = calFibo(n-1);  
+            s.push(s[s.length - 1] + s[s.length - 2]);
+            return s;
+            
+          }  
+          document.writeln(cal) 
+         }; 
+     
+         window.onload = function(){
+            $("result").onclick = calFibo(10);
+         }*/
+         /*function fibonacci(n) {
+            return n < 1 ? 0
+                   : n <= 2 ? 1
+                   : fibonacci(n - 1) + fibonacci(n - 2);
+         }*
+         document.writeln(fibonacci(15));*/
+    </script>
+</html>

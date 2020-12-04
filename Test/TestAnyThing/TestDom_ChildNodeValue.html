@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Test child node in Javascript</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+               <h1 id="node"> <span>example tets</span> This is a example tets child node <span>example tets</span> value in Javascript</h1>
+               <ul id="node1"><li>Yamaha</li><li>Honda</li></ul>
+              <button onclick="myFunction()">Try it</button>
+               <p id="testnode"></p>
+               
+     
+    </body>
+    <script>
+        function myFunction() {
+            var list = document.getElementById("node1").lastChild.innerHTML;
+            document.getElementById("testnode").innerHTML = list;
+        }
+    </script>
+</html>
